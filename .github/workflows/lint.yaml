@@ -10,8 +10,16 @@ on:
 # jobs
 jobs:
   echo_job:
-    name: echo job
+    name: first job
     runs-on: ubuntu-latest
     steps:
-      - name: first step in the echo job
-        run: echo "Hello CI!"
+      - name: first step
+        run: echo "Hello CI! 11"
+      - name: second step
+        run: echo "Hello CI! 12"
+  echo_job_2:
+    name: second job
+    runs-on: ubuntu-latest
+    steps:
+      - name: first step
+        run: echo "Hello CI! 21"
