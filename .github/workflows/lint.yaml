@@ -1,8 +1,7 @@
 
 # events
 on:
-  push:
-    branches: [ main, master ]
+  push: # run when push on any branch
   pull_request:
     types: [ opened, reopened]
 
