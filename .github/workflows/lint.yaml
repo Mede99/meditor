@@ -1,4 +1,6 @@
 
+name: test echo
+
 # events
 on:
   push: # run when push on any branch
