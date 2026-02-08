@@ -1,0 +1,30 @@
+version: '3'
+
+tasks:
+  lint:
+    desc: Run all Python linters
+    cmds:
+      - task: lint:black
+      - task: lint:isort
+      - task: lint:flake8
+
+  lint:fix:
+    desc: Auto-fix linting issues
+    cmds:
+      - black .
+      - isort .
+
+  lint:black:
+    desc: Run black
+    cmds:
+      - black --check .
+
+  lint:isort:
+    desc: Run isort
+    cmds:
+      - isort --check-only .
+
+  lint:flake8:
+    desc: Run flake8
+    cmds:
+      - flake8 .
