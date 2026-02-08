@@ -8,4 +8,7 @@ on:
 jobs:
   echo_job:
     name: echo job
-    run: echo "Hello CI!"
+    runs-on: ubuntu-latest
+    steps:
+      - name: first step in the echo job
+        run: echo "Hello CI!"
