@@ -1,20 +1,31 @@
+name: Lint
 
-name: Python Lint
-
-# events
 on:
-  push: # run when push on any branch
+  push:
   pull_request:
-    types: [ opened, reopened]
+    types: [opened, reopened]
 
-# jobs
 jobs:
   lint:
-    name: python lint action
+    name: Python Linting
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Python Linter
-      uses: sunnysid3up/python-linter@master
-      with:
-        strict: "high"
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install linting tools
+        run: |
+          pip install -r requirements-dev.txt
+      
+      - name: Run black
+        run: black --check .
+      
+      - name: Run isort
+        run: isort --check-only .
+      
+      - name: Run flake8
+        run: flake8 .
