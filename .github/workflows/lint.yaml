@@ -1,0 +1,11 @@
+
+# events
+on:
+  pull_request:
+    types: [ opened, reopened]
+
+# jobs
+jobs:
+  echo_job:
+    name: echo job
+    run: echo "Hello CI!"
